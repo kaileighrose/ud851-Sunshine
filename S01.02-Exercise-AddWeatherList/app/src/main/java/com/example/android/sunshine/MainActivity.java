@@ -18,19 +18,33 @@ package com.example.android.sunshine;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
+import com.example.android.sunshine.utilities.OpenWeatherJsonUtils;
+
 public class MainActivity extends AppCompatActivity {
 
     // TODO (1) Create a field to store the weather display TextView
-
+    TextView tWeatherDisplay;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forecast);
 
         // TODO (2) Use findViewById to get a reference to the weather display TextView
-
+        tWeatherDisplay = (TextView) findViewById(R.id.tv_weather_data);
         // TODO (3) Create an array of Strings that contain fake weather data
-
+        String[] weatherData = {
+                //date - conditions - high/low
+                "Current - Clear - 35°F/10°F",
+                "Tomorrow - Calm - 40°F/25°F",
+                "Sunday - Dread - 50°F/40°F",
+                "Monday - Impending Doom - 60°F/50°F",
+                "Tuesday - Imminent Death - 53°F/34°F",
+                "Wednesday - Eternal Despair - 46°F/28°F",
+                "Thursday - Stormy Daniels - 43°F/27°F"
+        };
         // TODO (4) Append each String from the fake weather data array to the TextView
+        for (String forecast : weatherData) {
+            tWeatherDisplay.append(forecast + "\n\n\n");
+        }
     }
 }
